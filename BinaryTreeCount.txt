@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+struct node
+{
+    struct node *lchild;
+    int data;
+    struct node *rchild;
+};
+
+struct node * insert(struct node * ptr,int key)
+{
+    if (ptr = NULL)
+    {
+        struct node * ptr=(struct node *)malloc(sizeof(struct node *));
+        ptr->data = key;
+        ptr->lchild =NULL;
+        ptr->rchild = NULL;
+
+    }
+
+    else if (key < ptr->data)
+    {
+        ptr->lchild = key;
+    }
+
+    else if (key > ptr->data)
+    {
+        ptr->rchild = key;
+    }
+
+    else
+    {
+        printf("Duplicate value Exists: ");
+    }
+}
+
+struct node *count(struct node * ptr)
+{
+
+if (ptr == NULL)
+{
+    printf("Tree is Empty");
+    return;
+}
+
+else
+{
+    int x,y;
+    x = count(ptr->lchild);
+    y = count(ptr->rchild);
+    return x+y+1;
+}
+}
+
+
+int main ()
+{
+    int choice, key;
+    while (1)
+    {
+        printf("Enter the choice : 1. Insert 2. Count 3.Exit");
+        scanf ("%d",&choice);
+
+        switch (choice)
+        {
+        case 1:
+        {
+            ptr = insert(root,key);
+            break;
+        }
+        
+        case 2: 
+        {
+            printf("Number of nodes in the tree is %d",count(root,key));
+            break;
+        }
+        
+
+        default:
+            break;
+        }
+    }
+}
